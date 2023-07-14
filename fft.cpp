@@ -31,4 +31,8 @@ void fft(std::vector<std::complex<double>>& a, bool invert) {
             }
         }
     }
+
+    if (invert)
+        for (int i = 0; i < n; i++)
+            a[i] /= n;
 }

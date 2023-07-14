@@ -139,10 +139,10 @@ int main(int argc, char** argv) {
         a[i] = sig[i];
     fft(a, false);
 
-    // magnitude of the first half
+    // magnitude of the first half, log scale
     std::vector<float> mag;
     for (int i = 0; i < n / 2; i++)
-        mag.push_back((float)std::abs(a[i]));
+        mag.push_back((float)log10(std::abs(a[i]) + 1e-9));
     plot(mag, "out/spectrum.png");
 
     fft(a, true);
